@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useContext, useMemo } from "react";
+import Navbar from "./components/Navbar";
+import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
+import { getDesignTokens } from "./Palette";
+import { ColorModeContext } from "./ColorContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
     </div>
   );
 }
 
-export default App;
+// Dark mode toggler
+
+export default function DarkThemeWithCustomPalette() {
+  const [mode, setMode] = useState("light");
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
+  );
+
+  const darkModeTheme = createTheme(getDesignTokens(mode));
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={darkModeTheme}>
+        <App />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
+}
