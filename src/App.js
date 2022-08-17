@@ -1,7 +1,8 @@
-import React, { useState, useContext, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Navbar from "./components/Navbar";
-import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { getDesignTokens } from "./Palette";
+
 import { ColorModeContext } from "./ColorContext";
 
 function App() {
@@ -25,7 +26,7 @@ export default function DarkThemeWithCustomPalette() {
     []
   );
 
-  const darkModeTheme = createTheme(getDesignTokens(mode));
+  const darkModeTheme = createTheme(getDesignTokens(mode), {});
 
   return (
     <ColorModeContext.Provider value={colorMode}>

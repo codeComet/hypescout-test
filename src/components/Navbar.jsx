@@ -18,7 +18,7 @@ import { MdDarkMode } from "react-icons/md";
 import { BiBell } from "react-icons/bi";
 import { ColorModeContext } from "../ColorContext";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Dashboard", "Campaign", "Hypesocial", "Insights"];
 
 const Navbar = () => {
   const theme = useTheme();
@@ -43,9 +43,18 @@ const Navbar = () => {
             <img
               src={theme.palette.mode === "dark" ? darkLogo : lightLogo}
               alt="Hypescout"
+              className={classes.logo}
             />
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            {/* Mobile responsive menu */}
+            <Box
+              sx={{
+                flexGrow: { xs: 0, sm: 0, md: 1 },
+                display: { xs: "flex", md: "none" },
+                justifyContent: "flex-end",
+                order: { xs: 2, sm: 2, md: 1 },
+              }}
+            >
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -87,6 +96,7 @@ const Navbar = () => {
                 flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
+                order: { xs: 2, sm: 2, md: 1 },
               }}
             >
               {pages.map((page) => (
@@ -96,15 +106,24 @@ const Navbar = () => {
                   sx={{
                     my: 2,
                     display: "block",
-                    color: theme.palette.button.text,
+                    color: theme.palette.text.primary,
+                    textTransform: "none",
                   }}
+                  className={classes.button}
                 >
                   {page}
                 </Button>
               ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
+            <Box
+              sx={{
+                flexGrow: { xs: 1, sm: 1, md: 0 },
+                order: { xs: 1, md: 2 },
+                justifyContent: "flex-end",
+                textAlign: "right",
+              }}
+            >
               <IconButton>
                 <BiBell className={classes.navIcon} />
               </IconButton>
@@ -113,7 +132,11 @@ const Navbar = () => {
               </IconButton>
 
               <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src="/static/images/avatar/2.jpg"
+                  className={classes.navIcon}
+                />
               </IconButton>
             </Box>
           </Toolbar>
@@ -125,10 +148,23 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles((theme) => ({
-  //   button: {
-  //     color: theme.palette.button.text,
-  //   },
+  button: {
+    "&:hover": {
+      background: theme.components.MuiButton.root,
+    },
+  },
   navIcon: {
     color: theme.palette.text.primary,
+    [theme.breakpoints.up("sm")]: {
+      margin: "0 5px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "20px",
+    },
+  },
+  logo: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100px",
+    },
   },
 }));
