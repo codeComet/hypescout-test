@@ -16,7 +16,7 @@ function App() {
 // Dark mode toggler
 
 export default function DarkThemeWithCustomPalette() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {

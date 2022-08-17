@@ -15,6 +15,7 @@ import { makeStyles } from "@mui/styles";
 import { ThemeProvider, useTheme } from "@mui/material/styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdDarkMode } from "react-icons/md";
+import { HiOutlineLightBulb } from "react-icons/hi";
 import { BiBell } from "react-icons/bi";
 import { ColorModeContext } from "../ColorContext";
 
@@ -109,7 +110,7 @@ const Navbar = () => {
                     color: theme.palette.text.primary,
                     textTransform: "none",
                   }}
-                  className={classes.button}
+                  className={classes.pageButton}
                 >
                   {page}
                 </Button>
@@ -128,7 +129,11 @@ const Navbar = () => {
                 <BiBell className={classes.navIcon} />
               </IconButton>
               <IconButton onClick={colorMode.toggleColorMode}>
-                <MdDarkMode className={classes.navIcon} />
+                {theme.palette.mode === "dark" ? (
+                  <HiOutlineLightBulb className={classes.navIcon} />
+                ) : (
+                  <MdDarkMode className={classes.navIcon} />
+                )}
               </IconButton>
 
               <IconButton sx={{ p: 0 }}>
@@ -148,11 +153,16 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles((theme) => ({
-  button: {
+  pageButton: {
     "&:hover": {
-      background: theme.components.MuiButton.root,
+      backgroundColor: theme.palette.secondary.main + " !important",
+    },
+
+    "&:first-child": {
+      backgroundColor: theme.palette.secondary.main + " !important",
     },
   },
+
   navIcon: {
     color: theme.palette.text.primary,
     [theme.breakpoints.up("sm")]: {
@@ -163,6 +173,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logo: {
+    [theme.breakpoints.up("md")]: {
+      width: "120px",
+    },
     [theme.breakpoints.down("sm")]: {
       width: "100px",
     },
