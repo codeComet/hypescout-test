@@ -2,14 +2,14 @@ export const getDesignTokens = (mode) => ({
   palette: {
     mode,
     primary: {
-      main: mode === "dark" ? "#17181B" : "#fff",
+      main: mode === "dark" ? "#000" : "#fff",
     },
     secondary: {
       main: mode === "dark" ? "#202124" : "#d2d2d2",
     },
     background: {
-      default: mode === "dark" ? "#17181B" : "#fff",
-      paper: mode === "dark" ? "#17181B" : "#fff",
+      default: mode === "dark" ? "#000" : "#fff",
+      paper: mode === "dark" ? "#17181B" : "#F7F7F7",
     },
 
     text: {
@@ -24,14 +24,4 @@ export const getDesignTokens = (mode) => ({
       textTransform: "none",
     },
   },
-  // components: {
-  //   MuiButton: {
-  //     fontFamily: "Sen, sans-serif",
-  //     textTransform: "none",
-  //     "& hover": {
-  //       backgroundColor: "red",
-  //       color: "blue",
-  //     },
-  //   },
-  // },
 });

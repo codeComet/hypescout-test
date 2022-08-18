@@ -38,8 +38,11 @@ const Navbar = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="fixed">
-        <Container maxWidth="xl">
+      <AppBar
+        position="fixed"
+        sx={{ backgroundColor: theme.palette.background.paper }}
+      >
+        <Container maxWidth="xl" className={classes.container}>
           <Toolbar disableGutters>
             <img
               src={theme.palette.mode === "dark" ? darkLogo : lightLogo}
@@ -123,6 +126,7 @@ const Navbar = () => {
                 order: { xs: 1, md: 2 },
                 justifyContent: "flex-end",
                 textAlign: "right",
+                display: "flex",
               }}
             >
               <IconButton>
@@ -135,14 +139,21 @@ const Navbar = () => {
                   <MdDarkMode className={classes.navIcon} />
                 )}
               </IconButton>
-
-              <IconButton sx={{ p: 0 }}>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: { xs: "none", sm: "none", md: "flex" },
+                  }}
+                >
+                  Hi, Rakib
+                </Typography>
                 <Avatar
                   alt="Remy Sharp"
                   src="/static/images/avatar/2.jpg"
                   className={classes.navIcon}
                 />
-              </IconButton>
+              </Box>
             </Box>
           </Toolbar>
         </Container>
@@ -153,6 +164,14 @@ const Navbar = () => {
 export default Navbar;
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    [theme.breakpoints.up("md")]: {
+      width: "85% !important",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100% !important",
+    },
+  },
   pageButton: {
     "&:hover": {
       backgroundColor: theme.palette.secondary.main + " !important",

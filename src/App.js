@@ -2,13 +2,14 @@ import React, { useState, useMemo } from "react";
 import Navbar from "./components/Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { getDesignTokens } from "./Palette";
-
 import { ColorModeContext } from "./ColorContext";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <Home />
     </div>
   );
 }
