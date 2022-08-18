@@ -418,7 +418,7 @@ const useOutlinedInputStyles = makeStyles((theme) => ({
     padding: "0.7rem 1rem",
     marginRight: "0.5rem",
     borderRadius: "0.5rem",
-    color: theme.palette.text.primary,
+    color: "#fff",
     fontFamily: "Sen, sans-serif",
     border: "none",
     "&:hover": {
