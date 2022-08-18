@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
   parent: {
     padding: "6rem 1rem",
     backgroundColor: theme.palette.background.default,
-    height: "100%",
+    height: "auto",
     color: theme.palette.text.primary,
   },
   container: {
     margin: "0 auto",
+
     [theme.breakpoints.up("md")]: {
       width: "85% !important",
     },

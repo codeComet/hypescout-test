@@ -10,6 +10,8 @@ export const getDesignTokens = (mode) => ({
     background: {
       default: mode === "dark" ? "#000" : "#fff",
       paper: mode === "dark" ? "#17181B" : "#F7F7F7",
+      modal: mode === "dark" ? "#17181B" : "#F7F7F7",
+      button: mode === "dark" ? "#000" : "#F7F7F7",
     },
 
     text: {
