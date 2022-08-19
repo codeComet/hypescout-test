@@ -98,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
     "& h5": {
       color: theme.palette.text.primary,
       marginBottom: ".5rem",
+      fontWeight: "bold",
     },
     "& .MuiTypography-body1": {
       display: "flex",
