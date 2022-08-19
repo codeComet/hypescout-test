@@ -120,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "0 .5rem",
       fontSize: "1.2rem",
       "&:hover": {
-        color: "#fff",
+        color: theme.palette.text.primary,
         cursor: "pointer",
       },
     },
