@@ -57,20 +57,24 @@ const useStyles = makeStyles((theme) => ({
   cardParent: {
     padding: "4rem 2rem",
     backgroundColor: theme.palette.background.paper,
-    margin: "1rem",
+
     borderRadius: ".5rem",
 
     [theme.breakpoints.up("lg")]: {
       width: "280px",
+      margin: "1rem",
     },
     [theme.breakpoints.only("md")]: {
       width: "280px",
+      margin: "1rem",
     },
     [theme.breakpoints.only("sm")]: {
       width: "250px",
+      margin: "1rem",
     },
     [theme.breakpoints.only("xs")]: {
       width: "235px",
+      margin: "1rem .2rem",
     },
   },
   cardImg: {
@@ -92,16 +96,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     color: "#637381",
     "& h5": {
-      color: "#fff",
+      color: theme.palette.text.primary,
       marginBottom: ".5rem",
     },
     "& .MuiTypography-body1": {
       display: "flex",
       alignItems: "center",
       margin: "0 0 .4rem",
+      color: theme.palette.text.paragraph,
       "& svg": {
         marginRight: "5px",
-
         fontSize: "1.2rem",
       },
     },
@@ -111,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     margin: "1rem auto",
-    color: "#637381",
+    color: theme.palette.text.secondary,
     "& svg": {
       margin: "0 .5rem",
       fontSize: "1.2rem",
@@ -136,10 +140,10 @@ const useStyles = makeStyles((theme) => ({
     border: "1px dashed #637381",
     borderRadius: ".2rem",
     "& .MuiTypography-body2": {
-      color: "#637381",
+      color: theme.palette.text.paragraph,
     },
     "& .MuiTypography-h6": {
-      color: "#96B3CD",
+      color: theme.palette.text.secondary,
       fontSize: "1rem",
     },
     [theme.breakpoints.only("sm")]: {

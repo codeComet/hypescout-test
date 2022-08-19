@@ -178,7 +178,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "&:first-child": {
-      backgroundColor: theme.palette.secondary.main + " !important",
+      backgroundColor: "#202124",
+      color: "#fff",
     },
   },
 

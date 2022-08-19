@@ -362,9 +362,7 @@ const useOutlinedInputStyles = makeStyles((theme) => ({
     },
   },
   modalParent: {
-    [theme.breakpoints.down("sm")]: {
-      overflow: "scroll",
-    },
+    overflow: "scroll",
   },
   modalStyle: {
     position: "absolute",

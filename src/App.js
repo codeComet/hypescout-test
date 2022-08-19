@@ -4,12 +4,14 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { getDesignTokens } from "./Palette";
 import { ColorModeContext } from "./ColorContext";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Home />
+      <Footer />
     </div>
   );
 }

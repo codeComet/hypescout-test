@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
+import { Typography, Pagination } from "@mui/material";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import SearchBar from "../components/SearchBar";
 import { users } from "../data";
 import UserCard from "../components/UserCard";
@@ -20,6 +22,18 @@ const Home = () => {
               </div>
             ))}
         </div>
+        {search.length === 0 && (
+          <div className={classes.pagination}>
+            <Typography>
+              <BsArrowLeft /> Prev
+            </Typography>
+            <Pagination count={10} hidePrevButton hideNextButton />
+            <Typography>
+              Next
+              <BsArrowRight />
+            </Typography>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -54,5 +68,34 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "1rem",
     justifyContent: "center",
+  },
+  pagination: {
+    display: "flex",
+    width: "88%",
+    margin: "auto",
+    alignItems: "center",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+      width: "100%",
+    },
+    "& .MuiTypography-body1": {
+      display: "flex",
+      alignItems: "center",
+      "& svg": {
+        margin: "0 10px",
+        [theme.breakpoints.down("sm")]: {
+          margin: "0 5px",
+        },
+      },
+      "&:hover": {
+        cursor: "pointer",
+        color: "#637381",
+      },
+
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
+    },
   },
 }));
