@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import SearchBar from "../components/SearchBar";
+import { users } from "../data";
+import UserCard from "../components/UserCard";
 
 const Home = () => {
   const classes = useStyles();
+  const [search, setSearch] = useState("");
   return (
     <div className={classes.parent}>
       <div className={classes.container}>
-        <SearchBar />
+        <SearchBar setSearch={setSearch} />
+        <div className={classes.users}>
+          {users
+            .filter((user) => user.name.toLowerCase().includes(search))
+            .map((user) => (
+              <div className={classes.user} key={user.id}>
+                <UserCard user={user} />
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
@@ -35,5 +47,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "100% !important",
     },
+  },
+  users: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    padding: "1rem",
+    justifyContent: "center",
   },
 }));

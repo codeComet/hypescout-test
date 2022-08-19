@@ -87,12 +87,15 @@ function numFormatter(num) {
     return num; // if value < 1000, nothing to do
   }
 }
-const SearchBar = () => {
+const SearchBar = ({ setSearch }) => {
   const outlinedInputStyles = useOutlinedInputStyles();
   const [open, setOpen] = useState(false);
   const [sliderValue, setSliderValue] = useState(1);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
   return (
     <Box className={outlinedInputStyles.searchParent}>
       <Box>
@@ -118,6 +121,7 @@ const SearchBar = () => {
                 <FiSearch />
               </InputAdornment>
             }
+            onChange={handleChange}
             label="Search Profile"
             className={outlinedInputStyles.root}
           />
@@ -371,7 +375,7 @@ const useOutlinedInputStyles = makeStyles((theme) => ({
     borderRadius: "0.5rem",
     color: theme.palette.text.primary,
     [theme.breakpoints.up("md")]: {
-      top: "28% !important",
+      top: "23% !important",
       right: "10%",
     },
     [theme.breakpoints.only("sm")]: {
