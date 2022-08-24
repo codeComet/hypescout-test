@@ -52,10 +52,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
 
     [theme.breakpoints.up("md")]: {
-      width: "85% !important",
+      width: "83% !important",
     },
-    [theme.breakpoints.up("xl")]: {
-      width: "85% !important",
+    [theme.breakpoints.up("lg")]: {
+      width: "80% !important",
     },
 
     [theme.breakpoints.down("sm")]: {

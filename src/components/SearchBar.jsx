@@ -373,11 +373,11 @@ const useOutlinedInputStyles = makeStyles((theme) => ({
     borderRadius: "0.5rem",
     color: theme.palette.text.primary,
     [theme.breakpoints.up("md")]: {
-      top: "23% !important",
+      top: "18% !important",
       right: "10%",
     },
     [theme.breakpoints.only("sm")]: {
-      top: "30% !important",
+      top: "18% !important",
       right: "5%",
     },
     [theme.breakpoints.down("sm")]: {
