@@ -51,15 +51,17 @@ const useStyles = makeStyles((theme) => ({
   container: {
     margin: "0 auto",
 
-    [theme.breakpoints.up("md")]: {
-      width: "83% !important",
+    [theme.breakpoints.only("sm")]: {
+      width: "100% !important",
     },
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.only("md")]: {
       width: "80% !important",
     },
-
-    [theme.breakpoints.down("sm")]: {
-      width: "100% !important",
+    [theme.breakpoints.up("lg")]: {
+      width: "83% !important",
+    },
+    [theme.breakpoints.only("xl")]: {
+      width: "80% !important",
     },
   },
   users: {
