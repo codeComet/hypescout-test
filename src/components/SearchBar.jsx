@@ -339,7 +339,6 @@ const useOutlinedInputStyles = makeStyles((theme) => ({
     },
   },
   inputLabel: {
-    // color: theme.palette.text.primary + " !important",
     "&.Mui-focused": {
       color: theme.palette.text.primary + " !important",
     },
